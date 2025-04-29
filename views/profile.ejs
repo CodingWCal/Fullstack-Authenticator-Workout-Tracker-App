@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+  <title>Workout Tracker</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+
+    <div class="page-header text-center">
+      <h1><span class="fa fa-male"></span> Your Workouts</h1>
+      <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+    <div class="row">
+
+      <!-- Account Info -->
+      <div class="col-sm-6">
+        <div class="well">
+          <h3><span class="fa fa-user"></span> Account</h3>
+          <% if (user.local.email) { %>
+            <p>
+              <strong>id:</strong> <%= user._id %><br>
+              <strong>email:</strong> <%= user.local.email %><br>
+            </p>
+            <a href="/unlink/local" class="btn btn-default">Unlink Account</a>
+          <% } else { %>
+            <a href="/connect/local" class="btn btn-default">Connect Local Account</a>
+          <% } %>
+        </div>
+      </div>
+
+      <!-- Workout List + Form -->
+      <div class="col-sm-6">
+        <h3>Logged Workouts</h3>
+        <ul class="list-group">
+          <% workouts.forEach(w => { %>
+            <li class="list-group-item">
+              <strong><%= w.exerciseName %></strong><br>
+              Sets: <%= w.sets %> | Reps: <%= w.reps %> | Weight: <%= w.weight %> lbs | Date: <%= w.date %>
+              
+              <form action="/workouts/<%= w._id %>?_method=DELETE" method="POST" style="display:inline; margin-left:20px;">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="workoutId" value="<%= w._id %>">
+                <button type="submit" class="btn btn-xs btn-danger">Delete</button>
+              </form>
+              
+            </li>
+          <% }) %>
+        </ul>
+
+        <h3>Add a Workout</h3>
+        <form action="/workouts" method="POST">
+          <div class="form-group">
+            <label>Exercise Name</label>
+            <input type="text" class="form-control" name="exerciseName" required>
+          </div>
+          <div class="form-group">
+            <label>Sets</label>
+            <input type="number" class="form-control" name="sets" required>
+          </div>
+          <div class="form-group">
+            <label>Reps</label>
+            <input type="number" class="form-control" name="reps" required>
+          </div>
+          <div class="form-group">
+            <label>Weight (lbs)</label>
+            <input type="number" step="any" class="form-control" name="weight" required>
+          </div>
+          <div class="form-group">
+            <label>Date</label>
+            <input type="date" class="form-control" name="date" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Save Workout</button>
+        </form>
+      </div>
+
+    </div><!-- /.row -->
+
+  </div><!-- /.container -->
+
+  <script src="main.js"></script>
+</body>
+</html>

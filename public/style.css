@@ -1,0 +1,14 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  padding-top:80px;
+  word-wrap:break-word;
+  background-color: rgb(226, 141, 13);
+}
+
+img{
+  height: 250px;
+}
+
