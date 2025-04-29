@@ -3,8 +3,9 @@
 A full-stack, Passport-protected workout logger that lets you sign up/in, add workouts (exercise, sets, reps, weight, date), and delete entries.
 
 **Link to project:** https://github.com/CodingWCal/fullstack-auth-app-1-workout-tracker  
-![Workout Tracker Screenshot](public/img/workout-tracker-screenshot.png)  
-*Screenshot of the profile page listing logged workouts.*
+![Workout Tracker Screenshot](https://github.com/CodingWCal/Fullstack-Authenticator-Workout-Tracker-App/blob/main/fullstack-app1-homepage-screenshot.png)  
+![Workout Tracker Screenshot](https://github.com/CodingWCal/Fullstack-Authenticator-Workout-Tracker-App/blob/main/workout-tracker-screenshot.png)  
+*Screenshot of the login and profile page listing logged workouts.*
 
 ## How It’s Made
 
