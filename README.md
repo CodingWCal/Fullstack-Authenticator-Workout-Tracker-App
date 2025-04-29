@@ -1,4 +1,4 @@
-# Fullstack App 1: Workout Tracker
+# Fullstack App Authenticator: Workout Tracker
 
 A full-stack, Passport-protected workout logger that lets you sign up/in, add workouts (exercise, sets, reps, weight, date), and delete entries.
 
